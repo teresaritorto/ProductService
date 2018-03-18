@@ -1,8 +1,11 @@
 ﻿using Newtonsoft.Json.Serialization;
+using ProductService.Exceptions;
+using ProductService.Logging;
 using Swashbuckle.Application;
 using System.Linq;
 using System.Net.Http.Formatting;
 using System.Web.Http;
+using System.Web.Http.ExceptionHandling;
 
 namespace ProductService
 {
@@ -37,6 +40,9 @@ namespace ProductService
             var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
-        }     
+            //add exception log handler            
+            config.Services.Replace(typeof(IExceptionLogger), new UnhandledExceptionLogger());
+            config.Filters.Add(new ExceptionFilter());
+        }
     }
 }

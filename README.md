@@ -28,7 +28,7 @@ DELETE products/{id}
 ```
 
 The following is expected:
-1) Use C# and the Web API 2 Framework
+1) Use C# and the Web Api 2 Framework
 2) Implement some form of automated testing
 3) Use some form of in-memory persistence
 
@@ -208,11 +208,6 @@ Response:
   }
 ]
 ```
-
-### Postman
-
-To test with postman, you can issue open requests using the above payloads. However to test the delete endpoint, ensure you add the following request header:
-
 
 ## Caveats (Could have but didn't...)
 
