@@ -96,8 +96,8 @@ Unit tests are created using the Microsoft Unit Test Tools. These can be run fro
 There is test coverage surrounding the in-memory persistance CRUD operations. This utilises the Moq nuget package to substitute in a mock of the Redis Server Client.
 
 ### Logging
-`TODO`
-
+A global Exception Filter is being used, which onException will return a generic response with a status code 500.
+A global Exception Logger is in place which will log the exception using NLog, configured to log to a text file. The log file location is configured in the `web.config` to be in the folder `APILog` within the root `ProductService` folder.
 
 ## Requests / Responses
 
