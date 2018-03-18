@@ -39,7 +39,7 @@ namespace ProductService.Security
                 return;
             }
 
-            var role = context.UserName == "Admin" ? UserRepository.Admin : UserRepository.TestUser;
+            var role = context.UserName.ToLower() == "admin" ? UserRepository.Admin : UserRepository.TestUser;
 
             //set up identity
             ClaimsIdentity identity = new ClaimsIdentity(context.Options.AuthenticationType);
