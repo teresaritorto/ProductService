@@ -65,14 +65,14 @@ namespace ProductService.Controllers
         /// <summary>
         /// GET products by filter
         /// </summary>
-        /// <param name="query">query</param>
+        /// <param name="q">query</param>
         /// <returns></returns>
         [HttpGet]        
-        public IHttpActionResult GetByFilter([FromUri]FilterProductQuery query)
+        public IHttpActionResult GetByFilter([FromUri]FilterProductQuery q)
         {
             try
             {
-                var product = repository.GetByFilter(query.Model, query.Description, query.Brand);
+                var product = repository.GetByFilter(q.Model, q.Description, q.Brand);
 
                 if (product.Count() == 0)
                     return NotFound();
@@ -128,6 +128,7 @@ namespace ProductService.Controllers
         /// DELETE: removes product by id
         /// </summary>
         /// <param name="id">product id</param>
+        [Authorize(Roles = UserRepository.Admin)]
         [Route("api/products/{id}"), HttpDelete]
         public IHttpActionResult Delete(string id)
         {
