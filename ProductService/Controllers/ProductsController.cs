@@ -9,7 +9,6 @@ namespace ProductService.Controllers
     /// <summary>
     /// Product API
     /// </summary>    
-    [RoutePrefix("api/products")]
     public class ProductsController : ApiController
     {
         private IProductRepository repository;
@@ -26,7 +25,7 @@ namespace ProductService.Controllers
         /// GET All products
         /// </summary>
         /// <returns>List of products</returns>        
-        [Route("api/products"), HttpGet]
+        [Route("products"), HttpGet]
         public IHttpActionResult GetAllProducts()
         {
             try
@@ -44,7 +43,7 @@ namespace ProductService.Controllers
         /// </summary>
         /// <param name="id">product id</param>
         /// <returns></returns>
-        [Route("api/products/{id}"), HttpGet]
+        [Route("products/{id}"), HttpGet]
         public IHttpActionResult GetProduct(string id)
         {
             try
@@ -66,8 +65,8 @@ namespace ProductService.Controllers
         /// GET products by filter
         /// </summary>
         /// <param name="q">query</param>
-        /// <returns></returns>
-        [HttpGet]        
+        /// <returns></returns>        
+        [HttpGet]
         public IHttpActionResult GetByFilter([FromUri]FilterProductQuery q)
         {
             try
@@ -90,7 +89,7 @@ namespace ProductService.Controllers
         /// </summary>
         /// <param name="id">product id</param>
         /// <param name="value">product</param>
-        [Route("api/products/{id}"), HttpPut]
+        [Route("products/{id}"), HttpPut]
         public IHttpActionResult Put(string id, [FromBody]Product value)
         {
             try
@@ -111,7 +110,7 @@ namespace ProductService.Controllers
         /// POST create product
         /// </summary>        
         /// <param name="value">product</param>
-        [Route("api/products"), HttpPost]
+        [Route("products"), HttpPost]
         public IHttpActionResult Post([FromBody]Product value)
         {
             try
@@ -129,7 +128,7 @@ namespace ProductService.Controllers
         /// </summary>
         /// <param name="id">product id</param>
         [Authorize(Roles = UserRepository.Admin)]
-        [Route("api/products/{id}"), HttpDelete]
+        [Route("products/{id}"), HttpDelete]
         public IHttpActionResult Delete(string id)
         {
             try

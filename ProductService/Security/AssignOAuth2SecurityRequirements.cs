@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Description;
 
-namespace ProductService.App_Start
+namespace ProductService.Security
 {
     /// <summary>
     /// Swagger Auth Filter

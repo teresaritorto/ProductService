@@ -24,8 +24,5 @@ namespace ProductService
             app.UseCors(CorsOptions.AllowAll);
             SwaggerConfig.Register(config);            
         }
-
-
-       
     }
 }
