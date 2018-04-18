@@ -1,6 +1,0 @@
-language: csharp
-solution: ProductService.sln
-install:
-  - nuget restore ProductService.sln
-script: 
-  - xbuild /p:Configuration=Release ProductService.sln
